@@ -37,3 +37,45 @@ if (args.length < 3) {
   originalCurrency = args[1];
   targetCurrency = args[2];
 }
+
+let output;
+
+const currencies = {
+  name: 'Currencies',
+  EUR: {
+    parity: 1,
+    symbol: '€'
+  },
+  USD: {
+    parity: 1.107,
+    symbol: '$'
+  },
+  RUB: {
+    parity: 70.46,
+    symbol: '₽'
+  },
+  TL: {
+    parity: 6.33,
+    symbol: '₺'
+  },
+  ZL: {
+    parity: 4.29,
+    symbol: 'Zł'
+  },
+  PEN: {
+    parity: 3.72,
+    symbol: 'S/'
+  },
+  CZK: {
+    parity: 25.56,
+    symbol: 'Kč'
+  }
+}
+
+
+const amountInEur = amount / currencies[originalCurrency].parity;
+
+output = amountInEur * currencies[targetCurrency].parity;
+
+console.log(amount + currencies[originalCurrency].symbol + ' = ' + output + currencies[targetCurrency].symbol)
+
